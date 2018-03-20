@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<script type="text/javascript">
+    (function() {
+        'use strict';
+        var app = angular.module('app');
+        app.constant('role_selected', 'testeur');
+        app.constant('campagne', {{ campagne.id }});
+    })(window);
+</script>
+    <div class="main-content">
+        {% if showMenu is defined and not showMenu %}
+        {% include 'Campagne/components/menu.html.twig' %}
+            <div style="margin-bottom:60px;"></div>
+        {% endif %}
+        <div class="container" ng-controller="FormCtrl">
+            <div class="form-group">&nbsp;</div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-9">
+                    <div>
+
+                        {% if showMenu is defined and showMenu %}
+                        <div class="col-md-4 hidden-mobile">
+                            <div class="clearfix bg-white panel sidebar">
+                                <div class="panel-body">
+                                    <h4 class="text-uppercase center">test<span class="rouge2">un</span>metier</h4>
+                                    <h5 class="center">vous accompagne pour :</h5>
+                                    
+                                    <ul class="standard-arrow bullet-top bloc-inscription">
+                                    	<li>
+                                    		Préciser votre projet de Test de Métier
+                                    	</li>
+                                    	<li>
+                                    	Trouver pour vous le professionnel qui vous accueille pour ce Test  (Le Tuteur) -  si vous ne l’avez pas déjà identifié
+                                    </li>
+                                    <li>
+                                    	Évaluer la capacité du tuteur à vous transmettre sa compétence métier
+                                    </li>
+                                    <li>
+                                    	Organiser et donner un cadre juridique et légal à votre test de métier 
+                                    </li>
+                                    <li>
+                                    	Faire le bilan de votre stage et identifier les next step pour mettre en place votre projet 
+                                    </li>
+                                    </ul>
+                                    <img src="/images/testunmetier-ballet.png" class="img-responsive"/>
+                                    <p>&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="{% if showMenu is defined and showMenu %}col-md-8{% else %}col-md-12{% endif %}">
+                            <div class="clearfix bg-white panel">
+                                <div class="panel-heading text-uppercase">Inscription : Tester un métier</div>
+                                <div class="panel-body">
+                                    <p class="message-error alert text-center alert-danger hide"></p>
+                                    <form method="POST" name="formTesteur" novalidate>
+                                        <div>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Votre projet *</h4>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea ng-class="{'form-element-errored': formRempli && formTesteur.projet.$error.required}" ng-model="testeur.projet" class="form-control" name="projet" rows="5" placeholder="Veuillez décrire votre projet et vos motivations en quelques lignes" required></textarea>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Le métier qui vous plaît</h4>
+                                            </div>
+                                            <div class="form-group">
+                                                <input ng-class="{'form-element-errored': formRempli && formTesteur.immersion_metier.$error.required}" ng-model="testeur.immersion_metier" class="form-control" type="text" name="immersion_metier" placeholder="Indiquez le métier que vous souhaitez tester *" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea ng-class="{'form-element-errored': formRempli && formTesteur.immersion_commentaire.$error.required}" ng-model="testeur.immersion_commentaire" class="form-control" rows="5" name="immersion_commentaire" placeholder="Précisez les savoir-faire que vous souhaitez expérimenter si vous les avez déjà identifiés" ></textarea>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-calendar"></span>&nbsp;Vos disponibilités *</h4>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div ng-class="{'form-element-errored liste-errored': formRempli && formTesteur.disponibilites.$error.required}">
+                                                            <input id="dispo1" ng-model="testeur.disponibilites" type="radio" name="disponibilites" value="1" required> <label for="dispo1">Immédiate</label><br>
+                                                            <input id="dispo2" ng-model="testeur.disponibilites" type="radio" name="disponibilites" value="2" required> <label for="dispo2">Sous 1 à 3 mois</label><br>
+                                                            <input id="dispo3" ng-model="testeur.disponibilites" type="radio" name="disponibilites" value="3" required> <label for="dispo3">Sous 6 à 12 mois</label><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-calendar"></span>&nbsp;Votre tuteur *</h4>
+                                            </div>
+                                            <div>
+                                            	<p>Avez-vous identifié le professionnel qui pourrait vous accueillir pour votre Test  ?</p>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div ng-class="{'form-element-errored liste-errored': formRempli && formTesteur.disponibilites.$error.required}">
+                                                            <input id="tuteur1" ng-model="testeur.tuteur_identify" type="radio" name="tuteur_identify" value="1" required> <label for="tuteur1">Oui</label><br>
+                                                            <input id="tuteur2" ng-model="testeur.tuteur_identify" type="radio" name="dispotuteur_identifynibilites" value="0" required> <label for="tuteur2">Non</label><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Informations complémentaires *</h4>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12"><p>Date de naissance :</p></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="date" ng-class="{'form-element-errored': formRempli && formTesteur.birthday.$error.required || formTesteur.birthday.$error.date}" ng-model="testeur.birthday" id="birthday" class="form-control" name="birthday" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12"><p>Situation professionnelle :</p></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <select ng-model="testeur.situation" ng-class="{'form-element-errored': formRempli && formTesteur.situation.$error.required || testeur.situation == 0}" class="form-control" name="situation" style="width:100%;" required>
+                                                    <option value="0">Veuillez indiquer votre situation professionnelle actuelle</option>
+                                                    <option value="1">Sans emploi</option>
+                                                    <option value="2">Etudiant</option>
+                                                    <option value="3">Employé / Ouvrier</option>
+                                                    <option value="4">Cadre / Manager</option>
+                                                    <option value="5">Chef d'entreprise / Indépendant</option>
+                                                    <option value="6">Retraité</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group row">
+
+                                                <div class="col-md-offset-1 col-md-10">
+                                                	<div class="center">
+                                            		<p>Merci pour ces informations qui vont nous permettre de construire avec vous votre projet.</p>  
+
+                                            		</div>
+                                                    <button class="form-control btn red-btn text-uppercase" ng-click="verifForm(formTesteur)" type="button" role="button">Valider</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if showMenu is defined and not showMenu %}
+        <div class="footer-content" style="background-color: black;">
+            <div class="container">
+                <br>
+                <div class="col-md-12 text-light-grey" style="float: left"><p class="text-light-grey;" style="font-size:18px" align="center">Testunmetier.com - 1<sup>er</sup> site de changement de vie professionnelle</p></div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

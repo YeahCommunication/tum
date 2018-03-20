@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<script type="text/javascript">
+    (function() {
+        'use strict';
+        var app = angular.module('app');
+        app.constant('role_selected', 'tuteur');
+        app.constant('campagne', {{ campagne.id }});
+    })(window);
+</script>
+<div class="main-content">
+    
+    <div class="container" ng-controller="FormCtrl">
+        <div class="form-group">&nbsp;</div>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-9">
+                <div>
+                    <div class="col-md-4 hidden-mobile">
+                        <div class="clearfix bg-white panel sidebar">
+                            <div class="panel-body">
+                                <h4 class="text-uppercase center">test<span class="rouge2">un</span>metier</h4>
+                                <h5 class="center">participez à l’aventure !</h5>
+                                <p class="bloc-inscription">Accueillez en test une personne motivée, désireuse d’apprendre de votre expérience, votre quotidien et la réalité concrète de votre métier.</p>
+                                <p class="bloc-inscription">Partagez sans filtre les avantages et les inconvénients de votre métier.</p>
+                                <p class="bloc-inscription">Vous serez l’acteur d’une aventure humaine riche d’enseignements et ferez peut-être la rencontre d’un futur salarié, repreneur, partenaire…</p>
+                                <img src="/images/testunmetier-ballet.png" class="img-responsive"/>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="clearfix bg-white panel">
+                            <div class="panel-heading text-uppercase">Inscription : tuteur</div>
+                            <div class="panel-body">
+                                <p class="message-error alert text-center alert-danger hide"></p>
+                                <form method="POST" name="formTuteur" novalidate>
+                                    <div>
+                                        <div class="form-group">
+                                            <h4 class="text-uppercase"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Votre motivation *</h4>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea ng-model="tuteur.motivations" ng-class="{'form-element-errored': formRempli && formTuteur.motivations.$error.required}" class="form-control" name="motivations" rows="5" placeholder="Veuillez nous dire en quelques lignes pourquoi vous souhaitez devenir Tuteur" required></textarea>
+                                        </div>
+                                        <hr>
+
+                                        <div class="form-group">
+                                            <h4 class="text-uppercase"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Votre métier</h4>
+                                        </div>
+                                        <div class="form-group">
+                                            <input ng-class="{'form-element-errored': formRempli && formTuteur.immersion_metier.$error.required}" ng-model="tuteur.immersion_metier" class="form-control" type="text" name="immersion_metier" placeholder="Indiquez le métier que vous souhaitez transmettre *" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <textarea ng-model="tuteur.immersion_commentaire" ng-class="{'form-element-errored': formRempli && formTuteur.immersion_commentaire.$error.required}" class="form-control" name="immersion_commentaire" rows="5" placeholder="Précisez dans la mesure du possible les savoir-faire, les tâches et les expériences que vous souhaitez partager"></textarea>
+                                        </div>
+                                        <hr>
+                                        <div class="form-group">
+
+                                            <h4 class="text-uppercase"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;Votre entreprise</h4>
+                                            <p> Votre statut professionnel : *</p>
+                                        </div>
+                                        <div class="form-group">
+                                                <select ng-model="tuteur.situation" ng-class="{'form-element-errored': formRempli && formTuteur.situation.$error.required || tuteur.situation == 0}" class="form-control" name="situation" style="width:100%;" required>
+                                                    <option value="0">Veuillez indiquer votre situation professionnelle actuelle</option>
+                                                    <option value="1">Indépendant</option>
+                                                    <option value="2">Salarié</option>
+                                                    <option value="3">Chef d'entreprise</option>
+                                                    
+                                                </select>
+                                        </div>
+                                        <p>  Nom et Adresse de votre entreprise / activité : </p>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                <input ng-class="{'form-element-errored': formRempli && formTuteur.agency_name.$error.required }" type="text" name="agency_name" class="form-control" placeholder="Nom de l’entreprise /activité" ng-model="tuteur.agency_name">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                <input ng-class="{'form-element-errored': formRempli && formTuteur.agency_address.$error.required }" type="text" name="agency_address" class="form-control" placeholder="Adresse"  ng-model="tuteur.agency_address">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                <input ng-class="{'form-element-errored': formRempli && formTuteur.agency_address2.$error.required }" type="text" name="agency_address2" class="form-control" placeholder="Complément d'adresse"  ng-model="tuteur.agency_address2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-6 col-xs-12">
+                                                    <input ng-class="{'form-element-errored': formRempli && formTuteur.agency_postalcode.$error.required}" type="text" name="agency_postalcode" class="form-control" placeholder="Code postal"  ng-model="tuteur.agency_postalcode">
+                                                </div>
+                                                <div class="col-md-6 col-xs-12">
+                                                    <input ng-class="{'form-element-errored': formRempli && formTuteur.agency_city.$error.required}" type="text" name="agency_city" class="form-control" placeholder="Ville"  ng-model="tuteur.agency_city">
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <p>Nombre de personnes travaillant dans l’entreprise / l’activité :</p>
+                                                <input ng-class="{'form-element-errored': formRempli && formTuteur.agency_nb.$error.required }" type="number" name="agency_nb" class="form-control" placeholder=""  ng-model="tuteur.agency_nb">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="form-group">
+                                            <h4 class="text-uppercase"><span class="glyphicon glyphicon-hourglass"></span>&nbsp;La durée du test *</h4>
+                                            <p> Combien de temps vous semble nécessaire pour la réalisation de ce test ?</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div ng-class="{'form-element-errored liste-errored': formRempli && formTuteur.disponibilites.$error.required}">
+                                                        <input id="dispo11" ng-model="tuteur.disponibilites" type="radio" name="disponibilites" value="1" required> <label for="dispo11">1 à 5 jours</label><br>
+                                                        <input id="dispo22" ng-model="tuteur.disponibilites" type="radio" name="disponibilites" value="2" required> <label for="dispo22">5 à 10 jours</label><br>
+                                                        <input id="dispo33" ng-model="tuteur.disponibilites" type="radio" name="disponibilites" value="3" required> <label for="dispo33">Plus de 10 jours</label><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="form-group">
+                                            <h4 class="text-uppercase"><span class="glyphicon glyphicon-euro"></span>&nbsp;L’ INDEMNISATION SOUHAITÉE *</h4>
+                                            <p>Quelle indemnisation envisagez-vous dans le cadre de ce test ?</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div ng-class="{'form-element-errored liste-errored': formRempli && formTuteur.type_remuneration.$error.required}">
+                                                        <input id="typeR1" ng-model="tuteur.type_remuneration" type="radio" name="type_remuneration" value="1" required> <label for="typeR1">A titre gracieux</label><br>
+                                                        <input id="typeR2" ng-model="tuteur.type_remuneration" type="radio" name="type_remuneration" value="2" required> <label for="typeR2">A partir de <input type="number" ng-required="tuteur.type_remuneration == '2'" ng-class="{'form-element-errored': formRempli && tuteur.type_remuneration == '2' && formTuteur.ammount_remuneration.$error.required}" ng-model="tuteur.ammount_remuneration" name="ammount_remuneration"> € (pour 1 journée)</label><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="form-group">
+                                            <h4 class="text-uppercase"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;Commentaires</h4>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea ng-model="tuteur.commentaires" ng-class="{'form-element-errored': formRempli && formTuteur.commentaires.$error.required}" class="form-control" name="commentaires" rows="5" placeholder="Commentaires" ></textarea>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-md-offset-1 col-md-10">
+                                                <div class="center">
+                                                    <p>Merci pour ces informations qui vont nous permettre de construire avec vous votre projet.</p>  
+
+                                                    </div>
+                                                <button class="form-control btn red-btn text-uppercase" ng-click="verifForm(formTuteur)" type="button" role="button">Valider</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'Emails/base.html.twig' %}
+
+{% block content %}
+<p>Bonjour {{ user.firstname }}, <br><br>
+    {{ message|raw  }}
+
+    <p>En vous inscrivant, vous venez de faire le premier pas sur Testunmetier.com !<br>
+	Notre équipe est ravie de vous accueillir pour vous faire vivre cette belle aventure.</p>
+
+    Nous vous rappelons vos identifiants :<br> <b>Votre e-mail :</b> {{ user.email }}<br>
+    <b>Votre mot de passe :</b> {{ plainPassword }}<br><br>
+
+    Testunmetier.com a hâte de vous accompagner !<br><br>
+
+    A très vite,<br>
+	L'équipe Testunmetier.com<br><br>
+{% endblock %}

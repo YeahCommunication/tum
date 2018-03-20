@@ -1,0 +1,49 @@
+<div class="col-md-3 col-xs-12 left padding">
+    <div class=" border-bottom">
+        <div class="main-profile">
+            <div class="profile-image" style="background:red;border-radius: 50%;color:#FFF;font-size:64px">{{ user.firstname|first }}</div>
+            <div class="profile-name">{{ user.firstname }} {{ user.lastname }}</div>
+        </div>
+
+
+        <ul>
+            <li><a href="{{ path('homepage') }}">  Accueil </a></li>
+            <li><a href="{{ path('user_edit') }}">  Mon Profil </a></li>
+            <li>
+                <a href="{{ path('campagne_show', {'slug' : 'testeur'}) }}" target="_blank">   Nouveau projet </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" style="cursor:pointer">   Mes Projets <span style="background:red;border-radius: 50%;color: #fff;font-size: 14px;padding: 2px 6px;">{{ user.types|length }}</span></a>
+
+                {% for key, type in user.types %}
+                    <div style="width:90%">
+                        <b>Projet N°{{ key+1 }}</b>
+                        {% if type.immersionMetier is defined %}
+                        <br>{{ type.immersionMetier }}<br>
+                            {% else %}
+                                <br>Coaching<br>
+                        {% endif %}
+                        <!--<b><a href="https://application.testunmetier.com/inscription?p=829997677040" target="_blank" style="color:#444;font-size:14px;text-decoration:italic">&gt; Voir ou modifier</a></b>-->
+                        <hr>
+                    </div>
+                {% endfor %}
+
+                <div style="width:90%">
+                </div>
+                <!--<ul>
+<li><a href="javascript:void(0)" >  Description</a></li>
+<li><a href="javascript:void(0)" >   Motivation </a></li>
+<li><a href="javascript:void(0)" >   Date </a></li>
+<li><a href="javascript:void(0)" >   Condition </a></li>
+</ul>->
+</li>
+
+<!--<li><a href="javascript:void(0)">   Mes Messags </a></li>-->
+            </li>
+            <li>
+                <a title="deconnexion" href="{{ path('fos_user_security_logout') }}">   Se déconnecter </a>
+            </li>
+
+        </ul>
+    </div>
+</div>

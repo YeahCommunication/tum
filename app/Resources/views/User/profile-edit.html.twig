@@ -1,0 +1,47 @@
+{% extends 'User/profile.html.twig' %}
+
+{% block contentProfile %}
+<h4>Mon profil</h4>
+
+
+<div class="center-box">
+    <div class="center-icon">
+        <i class="fa fa-check" aria-hidden="true"></i>
+    </div>
+    <form class="js-form-validate account__form" id="form-profile" action="" method="post">
+        <div class="inputs">
+            <div class="inputs__item inputs__item--half">
+                <label for="user-firstname">Prénom</label>
+                <input id="user-firstname" class="inputs__control" type="text" name="firstname" placeholder="" value="{{ user.firstname }}">
+                <i class="inputs__icon u-txt-orange icon-edit"></i>
+            </div>
+            <div class="inputs__item inputs__item--half">
+                <label for="user-lastname">Nom</label>
+                <input id="user-lastname" class="inputs__control" type="text" name="lastname" placeholder="" value="{{ user.lastname }}">
+                <i class="inputs__icon u-txt-orange icon-edit"></i>
+            </div>
+            <div class="inputs__item inputs__item--half">
+                <label for="user-password">Password*</label>
+                <input id="user-password" class="inputs__control" type="password" name="password" placeholder="Tap your password">
+            </div>
+            <div class="inputs__item inputs__item--half">
+                <label for="user-password-confirm">Confirm password*</label>
+                <input id="user-password-confirm" class="inputs__control" type="password" name="confirmpassword" placeholder="Tap your password">
+            </div>
+            <div class="inputs__item inputs__item--half">
+                <label for="user-institution">Code postal</label>
+                <input id="user-institution" class="inputs__control" type="text" name="institution" placeholder="" value="{{ user.postalCode }}">
+                <i class="inputs__icon u-txt-orange iconedit"></i>
+            </div>
+            <div class="inputs__item inputs__item--half">
+                <label for="user-institution">Téléphone</label>
+                <input id="user-institution" class="inputs__control" type="text" name="institution" placeholder="" value="{{ user.telephone }}">
+                <i class="inputs__icon u-txt-orange iconedit"></i>
+            </div>
+
+            <input type="submit" value="Modifier" />
+        </div>
+    </form>
+
+</div>
+{% endblock %}

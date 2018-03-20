@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <script type="text/javascript">
+        (function() {
+            'use strict';
+            var app = angular.module('app');
+            app.constant('role_selected', 'coach');
+            app.constant('campagne', {{ campagne.id }});
+        })(window);
+    </script>
+    <div class="main-content">
+       
+        <div class="container" ng-controller="FormCtrl">
+            <div class="form-group">&nbsp;</div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-9">
+                    <div>
+                        <div class="col-md-4 hidden-mobile">
+                            <div class="clearfix bg-white panel sidebar">
+                                <div class="panel-body">
+                                    <h4 class="text-uppercase center">test<span class="rouge2">un</span>metier</h4>
+                                    <h5 class="center">vous accompagne :</h5>
+                                    <p class="bloc-inscription">Nous étudions les solutions adaptées à votre profil dans le cadre d’une reconversion, d’un nouveau projet ou pour faire un bilan de carrière</p>
+                                    <img src="/images/testunmetier-ballet.png" class="img-responsive"/>
+                                    <p>&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="clearfix bg-white panel">
+                                <div class="panel-heading text-uppercase">Inscription : coaching</div>
+                                <div class="panel-body">
+                                    <p class="message-error alert text-center alert-danger hide"></p>
+                                    <form method="POST" name="formCoach" novalidate>
+                                        <div>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Votre projet / besoin *</h4>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea ng-model="coach.demande" ng-class="{'form-element-errored': formRempli && formCoach.demande.$error.required}" class="form-control" name="demande" rows="5" placeholder="Veuillez décrire votre projet et/ou vos besoins en quelques lignes" required></textarea>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-refresh"></span>&nbsp;TYPE DE COACHING ENVISAGÉ *</h4>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <select ng-model="coach.motif" ng-class="{'form-element-errored': formRempli && formCoach.motif.$error.required || coach.motif == 0}" name="motif" class="form-control" required>
+                                                    <option value="0">Veuillez sélectionner un motif</option>
+                                                    <option value="1">Avenir professionnel</option>
+                                                    <option value="2">Bilan de carrière</option>
+                                                    <option value="3">Création d'entreprise</option>
+                                                    <option value="4">Recherche d'un nouveau métier</option>
+                                                    <option value="5">Autres</option>
+                                                </select>
+                                            </div>
+                                            <hr>
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-calendar"></span>&nbsp;Vos disponibilités *</h4>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div ng-class="{'form-element-errored liste-errored': formRempli && formCoach.disponibilites.$error.required}">
+                                                            <input id="dispo1" ng-model="coach.disponibilites" type="radio" name="disponibilites" value="1" required> <label for="dispo1">Immédiate</label><br>
+                                                            <input id="dispo2" ng-model="coach.disponibilites" type="radio" name="disponibilites" value="2" required> <label for="dispo2">Sous 1 à 3 mois</label><br>
+                                                            <input id="dispo3" ng-model="coach.disponibilites" type="radio" name="disponibilites" value="3" required> <label for="dispo3">Sous 6 à 12 mois</label><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <h4 class="text-uppercase"><span class="glyphicon glyphicon-refresh"></span>&nbsp;Informations complémentaires *</h4>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12"><p>Date de naissance :</p></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="date" ng-class="{'form-element-errored': formRempli && formCoach.birthday.$error.required || formCoach.birthday.$error.date}" ng-model="coach.birthday" id="birthday" class="form-control" name="birthday" required>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12"><p>Situation professionnelle :</p></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <select ng-model="coach.situation" ng-class="{'form-element-errored': formRempli && formCoach.situation.$error.required || coach.situation == 0}" class="form-control" name="situation" style="width:100%;" required>
+                                                    <option value="0">Veuillez indiquer votre situation professionnelle actuelle</option>
+                                                    <option value="1">Sans emploi</option>
+                                                    <option value="2">Etudiant</option>
+                                                    <option value="3">Employé / Ouvrier</option>
+                                                    <option value="4">Cadre / Manager</option>
+                                                    <option value="5">Chef d'entreprise / Indépendant</option>
+                                                    <option value="6">Retraité</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col-md-offset-1 col-md-10">
+                                                    <div class="center">
+                                                    <p>Merci pour ces informations qui vont nous permettre de construire avec vous votre projet.</p>  
+
+                                                    </div>
+                                                    <button class="form-control btn red-btn text-uppercase" ng-click="verifForm(formCoach)" type="button" role="button">Suivant</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

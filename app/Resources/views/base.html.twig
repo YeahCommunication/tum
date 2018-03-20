@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/media.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style-socialicon.css') }}">
+        {% block stylesheets %}{% endblock %}
+
+        <script src="{{ asset('build/js/vendor.js') }}"></script>
+        <script src="{{ asset('build/js/scripts.js') }}"></script>
+
+<style type="text/css">
+        .main-nav > li.menu-item-570, .main-nav > li.menu-item-54 {
+            display:none;
+        }
+        ul{
+          margin-bottom:0;
+        }
+        .bonjour{
+          color:#666666;
+        }
+ </style>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body style="padding-top:0;" class="home page-template-default page page-id-2 slideshow-on disabled-hover-icons dt-responsive-on srcset-enabled btn-flat custom-btn-color custom-btn-hover-color bold-icons phantom-fade phantom-shadow-decoration phantom-main-logo-on  top-header first-switch-logo-left first-switch-menu-right second-switch-logo-left second-switch-menu-right right-mobile-menu layzr-loading-on popup-message-style wpb-js-composer js-comp-ver-5.4.5 vc_responsive not-webkit no-mobile phantom-off closed-overlay-mobile-header">
+    {% if showMenu is not defined or showMenu %}
+    <div class="masthead inline-header right widgets full-height shadow-decoration small-mobile-menu-icon dt-parent-menu-clickable masthead-mobile masthead-mobile-header">
+              <header class="header-bar">
+                {% include 'default/menu.html.twig' %}
+              </header>
+      <div class="mobile-header-bar">
+        <div class="mobile-navigation"><a href="#" class="dt-mobile-menu-icon"><span class="lines"></span></a></div>
+          <div class="mobile-mini-widgets">
+            <div class="mini-login show-on-desktop in-menu-first-switch in-menu-second-switch"><a href="/login" class="submit">Connexion</a>
+            </div>
+          </div>
+
+        <div class="mobile-branding"><a href="{{ vitrine_domain }}/"><img class=" preload-me" src="{{ vitrine_domain }}/wp-content/uploads/2018/01/logo-testunmetier-1.jpg" srcset="{{ vitrine_domain }}/wp-content/uploads/2018/01/logo-testunmetier-1.jpg 250w" sizes="250px" alt="Testunmétier.com" width="250" height="48"></a>
+        </div>
+      </div>
+      <div class="dt-close-mobile-menu-icon"><span></span></div>
+
+<div class="dt-mobile-header dt-parent-menu-clickable">
+  <div class="mobile-header-scrollbar-wrap mCustomScrollbar _mCS_1">
+    <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0">
+    <div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+      <ul id="mobile-menu" class="mobile-main-nav" role="menu">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-61 act first"><a href="{{ vitrine_domain }}/" data-level="1"><span class="menu-item-text"><span class="menu-text">Accueil</span></span></a></li> 
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60"><a href="{{ vitrine_domain }}/notre-concept/" data-level="1"><span class="menu-item-text"><span class="menu-text">Concept</span></span></a></li> 
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="{{ vitrine_domain }}/testeur/" data-level="1"><span class="menu-item-text"><span class="menu-text">Tester un Métier</span></span></a></li> 
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56"><a href="{{ vitrine_domain }}/metiers/" data-level="1"><span class="menu-item-text"><span class="menu-text">Métiers</span></span></a></li> 
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="{{ vitrine_domain }}/coaching/" data-level="1"><span class="menu-item-text"><span class="menu-text">Coaching</span></span></a></li> 
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58"><a href="{{ vitrine_domain }}/tuteur/" data-level="1"><span class="menu-item-text"><span class="menu-text">Tuteur</span></span></a></li> 
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"><a href="{{ vitrine_domain }}/on-parle-de-nous/" data-level="1"><span class="menu-item-text"><span class="menu-text">On parle de nous</span></span></a></li> 
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54"><a href="{{ vitrine_domain }}/le-blog/" data-level="1"><span class="menu-item-text"><span class="menu-text">Le Blog</span></span></a></li> 
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-570"><a href="http://tumapp.yeah.agency/campagne/testeur.html" data-level="1"><span class="menu-item-text"><span class="menu-text">Inscription</span></span></a></li>  
+      </ul>
+      <div class="mobile-mini-widgets-in-menu">
+        <div class="text-area show-on-desktop near-logo-first-switch in-menu-second-switch"><p><a href="{{ vitrine_domain }}/prenons-rendez-vous/" id="rdv" alt="Prenez rendez-vous" title="Prenez rendez-vous"><i class="fa fa-calendar" style="margin-right:8px"></i>Prenez rendez-vous</a></p>
+        </div>
+        <div class="soc-ico show-on-desktop in-menu-first-switch in-menu-second-switch disabled-bg accent-border border-on hover-accent-bg hover-disabled-border  hover-border-off"><a title="Facebook" href="https://www.facebook.com/testunmetier/" target="_blank" class="facebook" style="visibility: visible;"><span class="soc-font-icon"></span><span class="screen-reader-text">Facebook</span></a><a title="Twitter" href="https://twitter.com/TestUnMetier" target="_blank" class="twitter" style="visibility: visible;"><span class="soc-font-icon"></span><span class="screen-reader-text">Twitter</span></a><a title="Instagram" href="https://www.instagram.com/testunmetier/" target="_blank" class="instagram" style="visibility: visible;"><span class="soc-font-icon"></span><span class="screen-reader-text">Instagram</span></a></div><div class="mini-login show-on-desktop in-menu-first-switch in-menu-second-switch"><a href="http://tumapp.yeah.agency/login" class="submit">Connexion</a></div>
+      </div>
+    </div>
+    <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;">
+        <div class="mCSB_draggerContainer">
+            <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 63px; max-height: 169px;" oncontextmenu="return false;">
+              <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+          </div>
+          <div class="mCSB_draggerRail"></div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+    </div>
+    {% endif %}
+        <div id="page-app" class="closed-mobile-header">
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        </div>
+    
+
+
+<!-- !Footer -->
+    {% if showMenu is not defined or showMenu %}
+<footer id="footer" class="footer solid-bg">
+   <div class="wf-wrap">
+      <div class="wf-container-footer">
+         <div class="wf-container">
+            <section id="custom_html-2" class="widget_text widget widget_custom_html wf-cell wf-1-4">
+               <div class="widget-title">NOTRE CONCEPT</div>
+               <div class="textwidget custom-html-widget">
+                  TestUnMetier.com est un concept unique vous permettant d’expérimenter de nouveaux métiers.
+                  <div class="widget-title" style="padding-top:20px;">NOS SERVICES</div>
+                  <div class="text-widget">
+                     <ul >
+                        <li><a href="{{ vitrine_domain }}/tuteur/"><span style="list-style:circle #ffffff;"> &bull;</span> Devenez tuteur : partagez vos compétences professionnelles</a></li>
+                        <li ><a href="{{ vitrine_domain }}/testeur/"><span style="list-style:circle #85868c;"> &bull;</span> Devenez testeur : explorez de nouveaux domaines professionnels</a></li>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Bénéficiez d'un accompagnement personalisé : nos experts vous accompagnent dans vos projets professionnels</a></li>
+                     </ul>
+                  </div>
+                  <div class="widget-title" style="padding-top:20px;">QUI SOMMES-NOUS ?</div>
+                  <div class="text-widget">
+                     <ul>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Nos principes</a></li>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Carine Celnik CEO</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </section>
+            <section id="custom_html-3" class="widget_text widget widget_custom_html wf-cell wf-1-4">
+               <div class="widget-title">NOS MÉTIERS</div>
+               <div class="textwidget custom-html-widget">
+                  Avec Testunmetier.com, testez de nouveaux métiers et découvrez la réalité d’un métier au côté d’un tuteur :
+                  <div class="text-widget" style="padding-top:10px;">
+                     <ul>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Devenir fleuriste</a></li>
+                        <li ><a href="#"><span style="list-style:circle #85868c;"> &bull;</span> Devenir boulanger</a></li>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Devenir pâtissier</a></li>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Devenir menuisier</a></li>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Devenir sculpteur</a></li>
+                        <li><a href="#"><span style="list-style:circle #ffffff;"> &bull;</span> Et toutes nos autres immersions</a></li>
+                     </ul>
+                  </div>
+                  <div class="widget-title" style="padding-top:20px;">CGV</div>
+                  <div class="text-widget">
+                     <ul>
+                        <li><a href="{{ vitrine_domain }}/conditions-generales-de-ventes/"><span style="list-style:circle #ffffff;"> &bull;</span> Consulter</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </section>
+            <section id="custom_html-4" class="widget_text widget widget_custom_html wf-cell wf-1-4">
+               <div class="widget-title">NOS INFORMATIONS</div>
+               <div class="textwidget custom-html-widget">
+                  Avec Testunmetier.com, testez de nouveaux métiers et découvrez la réalité d’un métier au côté d’un tuteur :
+                  <div class="text-widget" style="padding-top:10px;">
+                     <ul>
+                        <li><a href="{{ vitrine_domain }}/tester-un-metier-pour-une-reconversion-reussie/"><span style="list-style:circle #ffffff;"> &bull;</span> Tester un métier pour une reconversion professionnelle réussie</a></li>
+                        <li ><a href="{{ vitrine_domain }}/choisir-une-bonne-formation-pour-reussir-sa-reconversion/"><span style="list-style:circle #85868c;"> &bull;</span> Choisir une bonne formation pour réussir sa reconversion</a></li>
+                        <li><a href="{{ vitrine_domain }}/creer-une-bonne-relation-avec-pole-emploi/"><span style="list-style:circle #ffffff;"> &bull;</span> Créer une bonne relation avec Pôle Emploi</a></li>
+                        <li><a href="{{ vitrine_domain }}/reconversion-professionnelle-a-30-ans-une-chance-a-saisir/"><span style="list-style:circle #ffffff;"> &bull;</span> Reconversion professionnelle à 30 ans, une chance à saisir</a></li>
+                        <li><a href="{{ vitrine_domain }}/crise-de-la-quarantaine-et-si-vous-changiez-de-metier/"><span style="list-style:circle #ffffff;"> &bull;</span> Crise de la quarantaine : et si vous changiez de métier ?</a></li>
+                        <li><a href="{{ vitrine_domain }}/se-reinventer-a-50-ans-grace-a-un-nouveau-job/"><span style="list-style:circle #ffffff;"> &bull;</span> Se réinventer à 50 ans grâce à un nouveau job</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </section>
+            <section id="custom_html-5" class="widget_text widget widget_custom_html wf-cell wf-1-4">
+               <div class="widget-title">ILS PARLENT DE NOUS</div>
+               <div class="textwidget custom-html-widget">
+                  <div class="text-widget">
+                     <img src="{{ vitrine_domain }}/wp-content/uploads/2018/01/le-journal-du-dimanche.png" alt="" title="" width="94" height="25" style="float:left; padding-right:5px;"/>
+                     <img src="{{ vitrine_domain }}/wp-content/uploads/2018/01/bfm-business.png" alt="" title="" width="31" height="31" style="float:left; padding-right:5px;"/>
+                     <img src="{{ vitrine_domain }}/wp-content/uploads/2018/01/EFRA-logo-3lignes-2.jpg" alt="" title="" width="65" height="29"/>
+                  </div>
+                  <div class="text-widget">
+                     <p>
+                        <a href="{{ vitrine_domain }}/on-parle-de-nous/" alt="On parle de nous" title="On parle de nous"> Découvrez toutes nos publications … et bien plus</a>
+                     </p>
+                     <div class="widget-title">CONTACTEZ-NOUS
+                      </div>
+                     <p>
+                        <a href="{{ vitrine_domain }}/contact/">Contactez nous via notre formulaire</a><br/>
+                        <a href="mailto:contact@testunmetier.com">E-mail : contact@testunmetier.com</a><br/>
+                        Tél : 01 79 75 76 65
+                     </p>
+                  </div>
+                  <div class="text-widget soc-ico show-on-desktop in-menu-first-switch in-menu-second-switch disabled-bg accent-border border-on hover-accent-bg hover-disabled-border  hover-border-off first last">
+                     <a class="facebook" title ="facebook" href="https://www.facebook.com/testunmetier/" target="_blank" style="-webkit-box-shadow: inset 0px 0px 0px 2px #e30613; box-shadow: inset 0px 0px 0px 2px #e30613;" ><span class="soc-font-icon"></span></a>
+                     <a class="twitter" title ="twitter" href="https://twitter.com/TestUnMetier" target="_blank" style="-webkit-box-shadow: inset 0px 0px 0px 2px #e30613; box-shadow: inset 0px 0px 0px 2px #e30613;" ><span class="soc-font-icon"></span></a>
+                     <a class="instagram" title ="instagram" href="https://www.instagram.com/testunmetier/" target="_blank" style="-webkit-box-shadow: inset 0px 0px 0px 2px #e30613; box-shadow: inset 0px 0px 0px 2px #e30613;" ><span class="soc-font-icon"></span></a>
+                  </div>
+                  <div class="widget-title" style="padding-top:10px;">REJOIGNEZ-NOUS</div>
+                  <div class="text-widget" >
+                     Postulez à présent par email à <a href="mailto:contact@testunmetier.com" alt="" title=""> contact@testunmetier.com</a> ou <a href="{{ vitrine_domain }}/rejoignez-nous/" alt="offres d'emploi" title="offres d'emploi">découvrez nos dernières offres d’emploi.</a>
+                  </div>
+               </div>
+            </section>
+         </div>
+         <!-- .wf-container -->
+      </div>
+      <!-- .wf-container-footer -->
+   </div>
+   <!-- .wf-wrap -->
+   <!-- !Bottom-bar -->
+   <div id="bottom-bar" class="solid-bg" role="contentinfo">
+      <div class="wf-wrap">
+         <div class="wf-container-bottom">
+            <div class="wf-table wf-mobile-collapsed">
+               <div class="wf-td">
+                  <div class="wf-float-left">
+                     © 2018 TestUnMetier.com - Tous droits réservés
+                  </div>
+               </div>
+               <div class="wf-td">
+               </div>
+               <div class="wf-td bottom-text-block">
+                  <p>TestUnMetier ­ Centre de formation déclaré sous le Numéro 11 75 50 656 75 - Préfecture Région Ile de France | <a href="{{ vitrine_domain }}/mentions-legales/" title="Mention légales"> Mentions légales</a></p>
+               </div>
+            </div>
+         </div>
+         <!-- .wf-container-bottom -->
+      </div>
+      <!-- .wf-wrap -->
+   </div>
+   <!-- #bottom-bar -->
+</footer>
+    {% endif %}
+<!-- #footer -->
+</body>
+
+</html>

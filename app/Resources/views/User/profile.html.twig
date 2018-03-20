@@ -1,0 +1,496 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    <style>
+        .row-content{
+            background: #ffffff;
+        }
+        .padding{
+            padding: 0px !important;
+        }
+        .border{
+            border-right: 1px solid #000000;
+        }
+        .border-top{
+            border-top: 1px solid #000000;
+        }
+        .border-bottom{
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .left{
+            border-right: 1px solid #e5e5e5;
+            padding: none;
+        }
+        .left ul{
+            list-style: none;
+            margin-left: 16%;
+        }
+        .left ul li{
+            margin: 10px 0;
+        }
+        .left ul li a{
+            color: #e40613;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .left ul ul{
+            padding-left: 15px;
+        }
+        .left ul ul li a{
+            color: #555;
+            font-size: 14px;
+        }
+        .main-profile{
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            background-color: transparent;
+        }
+        .profile-image{
+            width: 100px;
+            height: 100px;
+            border: 3px solid #e40613;
+            border-radius: 50%;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            overflow: hidden;
+            padding-top: 32px;
+        }
+        .profile-image img{
+            max-width: 100%;
+            text-align: center;
+        }
+        .profile-name{
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        .center{
+            color: #e5031b;
+            font-weight: 500;
+        }
+        .center h4{
+            font-size: 20px;
+            padding: 10px 0;
+            color: #555555;
+        }
+        .center h5{
+            font-size: 17px;
+            color: #444444;
+        }
+        .center-icon{
+            float: left;
+            height: 100%;
+            /*margin-right: 15px;*/
+            padding-bottom: 30px;
+            padding-top: 10px;
+        }
+        .center-icon i{
+            height: 30px;
+            width: 30px;
+            background: red;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 15px;
+            line-height: 30px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .center-box{
+            box-sizing: border-box;
+            /*margin:  15px;*/
+            width: 100%;
+            background: #f1f5f8;
+            border-radius: 5px;
+            padding:  10px 15px 10px 20px;
+        }
+        .center-box-btn{
+            display: block;
+        }
+        .center-box-btn a{
+            text-decoration: none;
+            padding: 5px;
+        }
+        .border-right{
+            border-right: 1px solid #e5e5e5;
+        }
+        .center p{
+            font-size: 14px;
+            color: #888888;
+        }
+        .center span{
+            color: #e5031b;
+        }
+
+        .right{
+            background: #ffffff;
+            padding: 10px 0;
+        }
+        .right-bg{
+            background: #e7ecef;
+            padding: 10px;
+        }
+        .right-box1{
+            margin: 0px auto 10px auto;
+            background: #e40613;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+        .right-icon{
+            color: #fff;
+            font-size: 60px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .right p{
+            font-size: 20px;
+            color: #fff;
+        }
+        .right-box2{
+            margin: 10px auto;
+            background: #eec106;
+            width: 100%;
+            background-image: url(https://www.w3schools.com/css/trolltunga.jpg);
+            box-sizing: border-box;
+            /*                position: absolute;*/
+            padding: 10px;
+            background-size: cover;
+            border-radius: 5px;
+            height:200px;
+            border: 2px solid #001d2d;
+        }
+        .box2-date{
+            width: 60px;
+            height: auto;
+            left: 75%;
+            top:5px;
+            background: #fff;
+            position: relative;
+            border-radius: 5px;
+            padding:5px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .box2-border{
+            margin: 5px;
+            border: 1px solid #02a2de;
+        }
+        .box2-sub{
+            background: rgba(44,71,78, 0.8);
+            max-width: 100%;
+            position: relative;
+            top: 25%;
+            border-radius: 5px;
+            padding: 7px 10px;
+        }
+        .box2-sub p{
+            color: #fff;
+            font-size: 20px;
+            margin: 0;
+        }
+        .right-box3{
+            background: #e40613;
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+            margin-top: 10px;
+            width: 100%;
+            padding: 25px 15px;
+            box-sizing: border-box;
+        }
+        .box3-detail{
+            background: #fff;
+            border-radius: 0 0 5px 5px;
+            padding: 10px;
+        }
+        .box3-detail p{
+            color: #666;
+            font-size: 12px;
+            margin-top: -20px;
+            margin-bottom: 0;
+        }
+        .box3-detail p i{
+            margin: 0 5px;
+        }
+        i.red{
+            color: #e40613;
+        }
+
+        .box3-profile{
+            overflow: hidden;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            position: relative;
+            background: #555;
+            top:-35px;
+            left:5%;
+        }
+
+
+
+
+
+        .dropbtn {
+            background-color: transparent;
+            color: #555;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .dropbtn i{
+            margin-left: 15px;
+            transition: all 0.2s;
+        }
+        .dropbtn:hover i{
+            color: red;
+        }
+
+        /* Dropdown button on hover & focus */
+        .dropbtn:hover {
+            background: transparent;
+            color: #555555;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: -20%;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
+
+
+
+        .top{
+            box-sizing: border-box;
+            padding: 15px ;
+            border-bottom: 1px solid #e5e5e5;
+
+        }
+        .top-profil-right{
+            float: right;
+            padding: auto 15px;
+        }
+        .top-profile{
+            width: 50px;
+            height: 50px;
+            border: 2px solid #E40613;
+            border-radius: 50%;
+            overflow: hidden;
+            float: left;
+        }
+        .top-profile img{
+            max-width: 100%;
+            text-align: center;
+        }
+        .top-name{
+            margin-left: 20px;
+            color: #555;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 100px;
+        }
+        .top-search{
+            display: block;
+            float: right;
+            background: transparent;
+            border: 1px solid #e5e5e5;
+            width: 90%;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .top-search p{
+            display: inline-block;
+            margin: 0;
+            color: #94a7ad;
+        }
+        .top-search span{
+            float: right;
+        }
+        .top-search i{
+            text-align: right;
+            color: #94a7ad;
+            font-size: 18px;
+        }
+        @media(max-width:767px){
+            .top-search{
+                display: none;
+            }
+        }
+        .overlay {
+            height: 0%;
+            width: 100%;
+            position: fixed;
+            z-index: 1000000;
+            top: 0;
+            left: 0;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0, 0.9);
+            overflow-y: hidden;
+            transition: 0.5s;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .overlay a:hover, .overlay a:focus {
+            color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay {overflow-y: auto;}
+            .overlay a {font-size: 20px}
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <div class="main-content">
+        <div class="container">
+            <div class="form-group">&nbsp;</div>
+            <div class="row row-content">
+
+                <!--<div class="col-xs-12 top">
+                    <div class="col-md-3"></div>
+
+                    <div class="col-md-6">
+                        <div class="top-search">
+                            <p>Search</p>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-9 ">
+                        <div class="top-profil-right">
+                            <div class="top-profile">
+                                <img src="http://dreamicus.com/data/face/face-07.jpg">
+                            </div>
+                            <div class="dropdown">
+                                <button onclick="myFunction()" class="dropbtn">
+                                    Testeur <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                                </button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="javascript:void(0)">Profile 1</a>
+                                    <a href="javascript:void(0)">Profile 2</a>
+                                    <a href="javascript:void(0)">Profile 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>-->
+
+
+                {% include 'User/sidebar.html.twig' %}
+                <div class="col-md-6 col-xs-12 ">
+                    <div class="center">
+
+                        {% block contentProfile %}{% endblock %}
+
+                    </div>
+
+
+                </div>
+                <div class="col-md-3 col-xs-12  ">
+                    <div class="right">
+                        <div class="right-bg" style="top-margin:2%">
+
+                            <img src="https://www.testunmetier.com/wp-content/uploads/2017/06/testunmetier-banniere2.png">
+                            <!--<div class="right-box1">
+                                <div class="right-icon">@</div>
+                                <p>Conseils et astuces pour preparer et realiser son projet d'immersion</p>
+                            </div>
+
+                            <div class="right-box2">
+                                <div class="box2-date">
+                                    MAR
+                                    <div class="box2-border"> </div><span>17</span>
+                                </div>
+                                <div class="box2-sub">
+                                    <p>Bien Choisir</p>
+                                    <p>son orientation</p>
+                                </div>
+                            </div>
+
+                            <div class="right-box3">
+                                <p>Concilier centres d'interet et activite professionnelle </p>
+                            </div>
+                            <div class="box3-detail">
+                                <div class="box3-profile"><img src="https://openclipart.org/download/277087/Female-Avatar-3.svg"> </div>
+                                <p>
+                                Test un metier
+                                <i class="fa fa-heart red" aria-hidden="true"></i>197
+                                <i class="fa fa-comment" aria-hidden="true"></i>23
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>Depuis 10 jours
+                                </p>
+
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+{% endblock %}

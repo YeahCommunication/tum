@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="main-content">
+
+        {% if showMenu is defined and not showMenu %}
+            {% include 'Campagne/components/menu.html.twig' %}
+            <div style="margin-bottom:60px;"></div>
+        {% endif %}
+
+        <div class="container">
+            <div class="form-group">&nbsp;</div>
+            <div>
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="col-md-12">
+                            <div class="clearfix bg-white panel">
+                                <div class="panel-heading text-uppercase">Testunmetier.com : CONFIRMATION D'INSCRIPTION</div>
+                                <div class="panel-body">
+                                    <p>&nbsp;</p>
+                                    <p class="text-center">
+                                        {{ campagne.confirmText|raw }}
+                                    </p>
+                                    <p>&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if showMenu is defined and not showMenu %}
+        <div class="footer-content" style="background-color: black;margin-top:400px;">
+            <div class="container">
+                <br>
+                <div class="col-md-12 text-light-grey" style="float: left"><p class="text-light-grey;" style="font-size:18px" align="center">Testunmetier.com - 1<sup>er</sup> site de changement de vie professionnelle</p></div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

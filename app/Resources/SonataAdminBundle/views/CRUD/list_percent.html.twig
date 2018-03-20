@@ -1,0 +1,9 @@
+{# La template par défaut mutliplie la valeur par 100... 4% -> 400% #}
+
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field %}
+    {% if value is not empty %}
+        {{ value }} %
+    {% endif %}
+{% endblock %}

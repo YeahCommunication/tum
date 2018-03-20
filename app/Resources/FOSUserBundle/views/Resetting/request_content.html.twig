@@ -1,0 +1,36 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% block body %}
+    <div class="main-content">
+        <div class="container">
+            <div class="form-group">&nbsp;</div>
+            <div class="row">
+                <div class="col-md-offset-4 col-md-6 col-xs-offset-2 col-xs-8">
+                    <div class="row flex-md">
+                        <div class="col-md-8 bg-white">
+                            <h3 class="text-center text-red text-uppercase">Vous avez oublié votre mot de passe ?</h3>
+                            {% block fos_user_content %}
+                                <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+                                    <div class="form-group">
+                                        <p>&nbsp;</p>
+
+                                        <p align="center" style="margin-bottom:0px">Pas de panique ! Nous allons vous envoyer la marche à suivre par email.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="username" class="form-control" placeholder="E-mail" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" name="registration" class="red-btn btn form-control text-uppercase">Continuer</button>
+                                    </div>
+
+                                </form>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">&nbsp;</div>
+        </div>
+    </div>
+{% endblock %}

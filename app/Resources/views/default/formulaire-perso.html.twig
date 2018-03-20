@@ -1,0 +1,109 @@
+<div ng-controller="FormPersoCtrl">
+    <h3 class="text-center text-red text-uppercase">
+        {% if (roleSelected == 'testeur') %}
+            inscription : Tester un métier
+        {% endif %}
+        {% if (roleSelected == 'tuteur') %}
+            inscription : tuteur
+        {% endif %}
+        {% if (roleSelected == 'coach') %}
+            inscription : Coaching
+        {% endif %}
+   </h3>
+    <form method="POST" name="formInfosPerso" id="formInfosPerso" novalidate>
+        <div class="form-group">
+            <p class="message-error alert text-center alert-danger hide"></p>
+            <p align="center" style="margin-bottom:0px;line-height:16px;">
+                {% if (roleSelected == 'testeur') %}
+                Inscrivez-vous et nous échangerons sur votre projet.<br/>&nbsp
+                {% endif %}
+                {% if (roleSelected == 'tuteur') %}
+                Inscrivez-vous et nous échangerons sur votre métier.<br/>&nbsp
+                {% endif %}
+                {% if (roleSelected == 'coach') %}
+                Inscrivez-vous et nous échangerons sur la solution adaptée à votre profil.<br/>&nbsp
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="form-group">
+            <div class="row" ng-class="{'form-element-errored liste-errored': formInfosPersoRempli && formInfosPerso.gender.$error.required}">
+                <div class="col-xs-4">
+                    <label class="radio-btn">
+                        <span class="">Civilité *</span>
+                    </label>
+                </div>
+                <div class="col-xs-4">
+                    <label class="radio-btn">
+                        <input type="radio" name="gender" class="radio" value="m" required ng-model="perso.gender">
+                        <span class="radio-text">Homme</span>
+                    </label>
+                </div>
+                <div class="col-xs-4">
+                    <label class="radio-btn">
+                        <input type="radio" name="gender" class="radio" value="f" required ng-model="perso.gender">
+                        <span class="radio-text">Femme</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <input ng-class="{'form-element-errored': formInfosPersoRempli && formInfosPerso.firstname.$error.required}" type="text" name="firstname" class="form-control" placeholder="Prénom *" required ng-model="perso.firstname">
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <input ng-class="{'form-element-errored': formInfosPersoRempli && formInfosPerso.lastname.$error.required}" type="text" name="lastname" class="form-control" placeholder="Nom *" required ng-model="perso.lastname">
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+            <div class="col-xs-12">
+            <input ng-class="{'form-element-errored': formInfosPersoRempli && formInfosPerso.email.$error.required || formInfosPerso.email.$error.email}" type="email" name="email" class="form-control" placeholder="E-mail *" required ng-model="perso.email">
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+            <div class="col-xs-12">
+            <input ng-class="{'form-element-errored': formInfosPersoRempli && formInfosPerso.password.$error.required}" type="password" name="password" class="form-control" placeholder="Mot de passe *" required ng-model="perso.password">
+            </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <input ng-class="{'form-element-errored': formInfosPersoRempli && formInfosPerso.postal_code.$error.required}" type="text" name="postal_code" class="form-control" placeholder="Code postal *" required ng-model="perso.postal_code">
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <input ng-class="{'form-element-errored': formInfosPersoRempli && formInfosPerso.telephone.$error.required}" type="tel" name="telephone" class="form-control" placeholder="Téléphone *" required ng-model="perso.telephone">
+            </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row" ng-class="{'form-element-errored': formInfosPersoRempli && formInfosPerso.optin.$error.required}">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="optin" name="optin" required ng-model="perso.optin">
+                    <label for="optin">J'ai lu et j'accepte les <a target="_blank" href="{{ vitrine_domain }}/conditions-generales-de-ventes/">termes et conditions d'utilisation</a></label>
+                </div>
+            </div>
+        </div>
+        
+
+        <input type="hidden" name="type" ng-model="perso.type" ng-init="perso.type = '{{ roleSelected }}'">
+        <input type="hidden" name="campagne_source" ng-model="perso.campagne_source" ng-init="perso.campagne_source = '{{ campagne.id }}'">
+
+        <div class="form-group">
+            <button type="button" role="button" ng-click="verifForm(formInfosPerso)" class="btn-continuer btn form-control text-uppercase">Je m'inscris</button>
+        </div>
+        <div class="form-group">
+            <a href="{{ path('fos_user_security_login') }}?type={{ roleSelected }}" class="link-grey center-block text-center">Déjà un compte ?  Se connecter</a>
+        </div>
+        <div class="form-group">
+            <p style="font-size:10px; line-height:1.5; text-align:justify;">Conform&eacute;ment &agrave; la loi N&deg; 78-17 du 6 janvier 1978 relative &agrave; l&#39;informatique, aux fichiers et aux libert&eacute;s, vous disposez d&#39;un droit d&#39;acc&egrave;s, de notification, d&#39;opposition et de suppressiondes donn&eacute;es qui vous concernent, pour l&#39;exercer vous pouvez envoyer un mail &agrave; <a href="mailto:contact@testunmetier.com">contact@testunmetier.com</a></p>
+
+        </div>
+    </form>
+</div>

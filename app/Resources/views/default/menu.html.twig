@@ -1,0 +1,20 @@
+
+
+				<div class="branding">
+					<div id="site-title" class="assistive-text">Testunmétier.com</div>
+					<div id="site-description" class="assistive-text">Tester un métier avant de changer de vie professionnelle</div>
+					<a href="{{ vitrine_domain }}"><img class=" preload-me" src="{{ vitrine_domain }}/wp-content/uploads/2018/01/logo-testunmetier-1.jpg" srcset="{{ vitrine_domain }}/wp-content/uploads/2018/01/logo-testunmetier-1.jpg 250w" sizes="250px" alt="Testunmétier.com" width="250" height="48"></a>
+				</div>
+		<ul id="primary-menu" class="main-nav underline-decoration upwards-line outside-item-remove-margin" role="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-61 act first"><a href="{{ vitrine_domain }}/" data-level="1"><span class="menu-item-text"><span class="menu-text">Accueil</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60"><a href="{{ vitrine_domain }}/notre-concept/" data-level="1"><span class="menu-item-text"><span class="menu-text">Concept</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="{{ vitrine_domain }}/testeur/" data-level="1"><span class="menu-item-text"><span class="menu-text">Tester un Métier</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-56"><a href="{{ vitrine_domain }}/metiers/" data-level="1"><span class="menu-item-text"><span class="menu-text">Métiers</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="{{ vitrine_domain }}/coaching/" data-level="1"><span class="menu-item-text"><span class="menu-text">Coaching</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58"><a href="{{ vitrine_domain }}/tuteur/" data-level="1"><span class="menu-item-text"><span class="menu-text">Tuteur</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"><a href="{{ vitrine_domain }}/on-parle-de-nous/" data-level="1"><span class="menu-item-text"><span class="menu-text">On parle de nous</span></span></a></li> <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54"><a href="{{ vitrine_domain }}/le-blog/" data-level="1"><span class="menu-item-text"><span class="menu-text">Le Blog</span></span></a></li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-570"><a href="http://tumapp.yeah.agency/campagne/testeur.html" data-level="1"><span class="menu-item-text"><span class="menu-text">Inscription</span></span></a></li> </ul>
+
+			<div class="mini-widgets">
+				<div id="menu-main-menu"  style="float:right;">
+	                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+	                    <div class="mini-login" itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="{{ path('homepage') }}" style="color:#777;cursor:pointer">Bonjour {{ app.user.firstname }}</a>
+	                    </div>
+	                    <div class="mini-login show-on-desktop in-menu-first-switch in-menu-second-switch" itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a class="submit" title="Nos immersions" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></div>
+	                {% else %}
+	                <div class="mini-login show-on-desktop in-menu-first-switch in-menu-second-switch" itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-149" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-149"><a class="submit" href="{{ path('fos_user_security_login') }}">Connexion</a></div>
+	                {% endif %}
+	            </div>
+        	</div>

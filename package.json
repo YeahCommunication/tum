@@ -1,0 +1,47 @@
+{
+  "name": "tum",
+  "version": "1.0.0",
+  "description": "Website TUM",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp",
+    "bower": "bower",
+    "eslint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+http://gitlab.aaa.eu:yeah/tum.git"
+  },
+  "keywords": [
+    "tum"
+  ],
+  "author": "YEAH Communication",
+  "license": "UNLICENSED",
+  "homepage": "http://gitlab.aaa.eu:yeah/tum.git#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.1",
+    "gulp-exec": "^2.1.3",
+    "gulp-if": "^2.0.1",
+    "gulp-iife": "^0.3.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-ng-config": "^1.3.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3"
+  },
+  "dependencies": {
+    "promise-polyfill": "^6.0.2",
+    "screenfull": "^3.2.0"
+  }
+}

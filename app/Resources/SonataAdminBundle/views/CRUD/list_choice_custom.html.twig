@@ -1,0 +1,21 @@
+{# Permet d'afficher quelque chose de joli pour les state dans l'admin #}
+
+{% extends 'SonataAdminBundle:CRUD:list_choice.html.twig' %}
+
+{% block field %}
+
+    {% if "state" != field_description.name %}
+        {{ parent() }}
+    {% else %}
+        {% if 1 == value %}
+            <span class="label label-success">publié</span>
+        {% elseif 0 == value %}
+            <span class="label label-warning">dépublié</span>
+        {% elseif -2 == value %}
+            <span class="label label-danger">absent</span>
+        {% else %}
+            <span class="label"># STATE #</span>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'Emails/base.html.twig' %}
+
+{% block content %}
+<p>Bonjour {{ user.firstname }}, <br><br>
+    {{ message|raw  }}
+{% endblock %}

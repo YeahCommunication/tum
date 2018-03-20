@@ -1,0 +1,23 @@
+[
+  "./app/Resources/js/vendor/bluebird.min.js",
+  "./app/Resources/js/vendor/angular.min.js",
+  "./app/Resources/js/vendor/ui-bootstrap-tpls.min.js",
+  "./app/Resources/js/vendor/restangular.min.js",
+  "./app/Resources/js/vendor/angular-animate.js",
+  "./app/Resources/js/vendor/angular-aria.js",
+  "./app/Resources/js/vendor/angular-messages.js",
+  "./app/Resources/js/vendor/angular-material.js",
+  "./app/Resources/js/vendor/angular-sanitize.min.js",
+  "./app/Resources/js/vendor/angular-cookies.js",
+  "./app/Resources/js/vendor/angular-local-storage.min.js",
+  "./app/Resources/js/vendor/sticky.min.js",
+  "./app/Resources/js/vendor/ngGeolocation.min.js",
+  "./app/Resources/js/vendor/lodash.min.js",
+  "./app/Resources/js/vendor/angular-simple-logger.min.js",
+  "./app/Resources/js/vendor/angular-google-maps.min.js",
+  "./app/Resources/js/vendor/angular-locale_fr-fr.min.js",
+  "./app/Resources/js/vendor/checklist-model.js",
+  "./app/Resources/js/vendor/rzslider.min.js",
+  "./app/Resources/js/vendor/jquery.min.js",
+  "./app/Resources/js/vendor/bootstrap.min.js"
+]

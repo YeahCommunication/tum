@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="main-content">
+        <div class="container">  
+            <div class="row">    
+            <div class="col-md-offset-2 col-md-8 col-xs-offset-1 col-xs-10">                
+                    <div class="form-group">&nbsp;</div>
+                        <div class="bg-white" style="padding:20px;" >                                                     
+                            <div class="align-icon" style="text-align:center; font-size:40px; margin-top:-35px;">
+                                <span class="glyphicon glyphicon-info-sign" style="color:#E30613; padding-bottom:10px; "></span>
+                            </div>                                                        
+                            <p><strong>Testunmétier.com évolue pour vous offrir plus de services et de sécurité !</strong> Nous avons amélioré l'accès à votre compte, pour pouvoir y accéder veuillez générer un nouveau mot de passe en cliquant sur le lien "Mot de passe oublié"" ci-dessous.</p>                           
+                        </div>
+            </div>
+            </div>
+            <div class="form-group">&nbsp;</div>
+            <div class="row">
+                <div class="col-md-offset-4 col-md-6 col-xs-offset-2 col-xs-8">
+                    <div class="row flex-md">
+                        <div class="col-md-8 bg-white">
+                            <h3 class="text-center text-red text-uppercase">Connexion</h3>
+                            {% block fos_user_content %}
+                                <form id="target" method="post" action="{{ path('fos_user_security_check') }}?type={{ app.request.query.get('type') }}">
+                                    <div class="form-group">
+                                        <p>&nbsp;</p>
+                                        {% if error %}
+                                            <p class="alert alert-danger text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                                        {% endif %}
+                                        <p align="center" style="margin-bottom:0px">Saisissez vos identifiants<br>pour accéder à la plateforme Testunmetier.com</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="_username" class="form-control" placeholder="E-mail" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="_password" class="form-control" placeholder="Mot de passe" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="remember_me" name="_remember_me" value="on" type="checkbox">
+                                        <label for="remember_me">Mémoriser les identifiants</label>
+                                    </div>
+
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                    <div class="form-group">
+                                        <button type="submit" name="registration" class="red-btn btn form-control text-uppercase">Continuer</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="{{ path('fos_user_resetting_request') }}" class="link-grey center-block text-center">Mot de passe oublié ?</a><br>
+                                        {% if(app.request.query.get('type')) %}
+                                            <a href="{{ app.request.headers.get('referer') }}" class="link-grey center-block text-center">Pas encore de compte ?<br>Créer un nouveau compte</a>
+                                        {% endif %}
+                                    </div>
+                                </form>
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">&nbsp;</div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git pull
+composer install
+chown -R www-data:www-data *
+php bin/console cache:clear -e prod
+php bin/console d:s:u --dump-sql --force
+npm run gulp -- compile --prod
+chown -R www-data:www-data *
+rm -Rf var/cache/*

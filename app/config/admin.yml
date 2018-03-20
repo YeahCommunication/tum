@@ -1,0 +1,41 @@
+services:
+    admin.user_admin:
+        class: 'AppBundle\Admin\UserAdminAdmin'
+        arguments: [~, 'AppBundle\Entity\User', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Administrateurs', label: 'Administrateurs' }
+    admin.user:
+        class: 'AppBundle\Admin\UserAdmin'
+        arguments: [~, 'AppBundle\Entity\User', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Utilisateurs', label: 'Utilisateurs' }
+    admin.campagne:
+        class: 'AppBundle\Admin\CampagneAdmin'
+        arguments: [~, 'AppBundle\Entity\Campagne', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Campagne', label : 'Campagnes' }
+    admin.testeur:
+        class: 'AppBundle\Admin\TesteurAdmin'
+        arguments: [~, 'AppBundle\Entity\TesteurUser', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Utilisateurs', label : 'Testeurs' }
+    admin.coach:
+        class: 'AppBundle\Admin\CoachAdmin'
+        arguments: [~, 'AppBundle\Entity\CoachUser', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Utilisateurs', label : 'Coachs' }
+    admin.tuteur:
+        class: 'AppBundle\Admin\TuteurAdmin'
+        arguments: [~, 'AppBundle\Entity\TuteurUser', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Utilisateurs', label : 'Tuteurs' }
+    admin.cms:
+        class: 'AppBundle\Admin\CmsAdmin'
+        arguments: [~, 'AppBundle\Entity\Cms', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Contenu', label: 'Contenu des pages et mails', show_in_dashboard: false }
+    admin.cms.item:
+        class: 'AppBundle\Admin\CmsItemAdmin'
+        arguments: [~, 'AppBundle\Entity\CmsItem', ~]
+        tags:
+            - { name: 'sonata.admin', manager_type: 'orm', group: 'Contenu', show_in_dashboard: false}

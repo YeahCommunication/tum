@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<section class="container">
+    <div class="section-title">
+        <div class="section-title__texte">
+            <h1 class="text-xs-center">Vous avez demandé à réinitialiser votre mot de passe</h1>
+            <p class="subtitle text-xs-center color-turquoise">Veuillez renseinger votre nouveau mot de passe ci dessous</p>
+        </div>
+    </div>
+</section>
+<div class="container login-form">
+    <div class="col-md-8 col-sm-12 offset-md-2 col-xs-12 col-lg-6 offset-lg-3">
+        <div layout="column" class="md-inline-form layout-column">
+            {{ form_start(form, { 'action': path('reset_password_custom', {'token': token}) }) }}
+                <div>
+                    <md-input-container class="md-block md-input-has-value">
+                        {{ form_label(form.plainPassword.first) }}
+                        {{ form_errors(form.plainPassword.first) }}
+                        {{ form_widget(form.plainPassword.first) }}
+                        <div class="md-errors-spacer"></div>
+                    </md-input-container>
+                    <md-input-container class="md-block md-input-has-value">
+                        {{ form_label(form.plainPassword.second) }}
+                        {{ form_errors(form.plainPassword.second) }}
+                        {{ form_widget(form.plainPassword.second) }}
+                        <div class="md-errors-spacer"></div>
+                    </md-input-container>
+                    <button type="submit" class="btn text-uppercase btn-turquoise btn-login pull-right">Continuer <i class="tc tc_fleche"></i></button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>

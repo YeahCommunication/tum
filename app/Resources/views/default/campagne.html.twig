@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        {{ campagne.codeCss|raw }}
+    </style>
+    <div class="main-content">
+        <nav class="navbar navbar-default fixed-navbar">
+            <div class="container">
+                <div class="row">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="col-md-6">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="{{ vitrine_domain }}">
+                                <img src="{{ asset('images/logo.png') }}">
+                            </a>
+                        </div>
+                    </div>
+                    {% if campagne.logo %}
+                    <div class="col-md-6">
+                        <a class="navbar-brand pull-right" href="#">
+                            <img src="{{ app.request.basePath }} {{ vich_uploader_asset(campagne, 'logoFile') }}" class="img-responsive logo" style="height: 65px!important;">
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="form-group">&nbsp;</div>
+            <div class="row">
+                <div class="col-md-6 visuel-gauche">
+                    <img src="{{ app.request.basePath }} {{ vich_uploader_asset(campagne, 'visuelFile') }}" class="img-responsive img-half">
+                </div>
+
+                <div class="col-md-6 formulaire-perso">
+                    {% include 'default/formulaire-perso.html.twig' %}
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+                {{ campagne.codeHtml|raw }}
+            </div>
+
+            <div class="form-group">&nbsp;</div>
+        </div>
+    </div>
+
+    {% if showMenu is defined and not showMenu %}
+        <div class="footer-content" style="background-color: black;">
+            <div class="container">
+                <br>
+                <div class="col-md-12 text-light-grey" style="float: left"><p class="text-light-grey;" style="font-size:18px" align="center">Testunmetier.com - 1<sup>er</sup> site de changement de vie professionnelle</p></div>
+            </div>
+        </div>
+        {% endif %}
+
+{% endblock %}
