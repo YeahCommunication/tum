@@ -73,26 +73,15 @@ class UserAdminAdmin extends AbstractAdmin
                     'required' => (!$this->getSubject() || is_null($this->getSubject()->getId())),
                     'label' => 'Mot de passe',
                 ))
-                ->end()
-            ->with('Roles', array('class' => 'col-md-6'))
                 ->add('roles', 'choice', array(
                     'choices' => array(
-                        'SUPER Admin (accès complet)' => 'ROLE_SUPER_ADMIN',
-                        'Etablissement' => 'ROLE_ETABLISSEMENT',
-                        'Client' => 'ROLE_CLIENT',
-                        'Leads' => 'ROLE_LEADS',
-                        'BCA' => 'ROLE_BCA',
-                        'Stock' => 'ROLE_STOCK',
-                        'Contenu' => 'ROLE_CONTENU',
-                        'Jobs' => 'ROLE_JOBS',
-                        'Entretenir' => 'ROLE_ENTRETENIR',
+                        'SUPER Admin' => 'ROLE_SUPER_ADMIN',
+                        'Admin' => 'ROLE_ADMIN'
                     ),
-                    'label' => 'Accès aux menus',
                     'expanded' => false,
                     'multiple' => true,
                     'required' => false
                 ))
-                ->add('adminEtab')
                 ->end()
 
             ->end();
@@ -109,7 +98,12 @@ class UserAdminAdmin extends AbstractAdmin
         $listMapper->add('lastname')
             ->add('firstname')
             ->add('email')
-            ->add('roles', 'array', array('template' => 'Admin/CRUD/role.html.twig'));
+            ->add('_action', null, array(
+                'label' => "Actions",
+                'actions' => array(
+                    'edit' => array(),
+                )
+            ));
     }
 
 }

@@ -46,7 +46,8 @@ class UserAdmin extends AbstractAdmin
                 ))
                 ->add('roles', 'choice', array(
                     'choices' => array(
-                        'SUPER Admin (accès complet)' => 'ROLE_SUPER_ADMIN',
+                        'SUPER Admin' => 'ROLE_SUPER_ADMIN',
+                        'Admin' => 'ROLE_ADMIN'
                     ),
                     'label' => 'droits admin',
                     'expanded' => false,
