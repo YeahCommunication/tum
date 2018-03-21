@@ -23,6 +23,9 @@ class TesteurAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->tab('Général')
+                ->add('user', 'sonata_type_model_list', [
+                    'btn_add' => false
+                ], ['admin_code' => 'admin.user'])
                 ->add('projet', 'textarea', array('label' => 'Description du projet'))
                 ->add('immersion_metier','text', array('label' => 'Métier choisi'))
                 ->add('immersion_commentaire','textarea', array('label' => 'Commentaire sur le métier', 'required'=>false))

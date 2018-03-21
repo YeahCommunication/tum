@@ -985,7 +985,12 @@ class TuteurUser extends Type
      */
     public function __toString()
     {
-        return $this->getUser()->getFirstname() . ' ' . $this->getUser()->getLastname();
+        if($this->getUser()){
+            return $this->getUser()->getFirstname() . ' ' . $this->getUser()->getLastname();
+        } else {
+            return 'Tuteur';
+        }
+
     }
 }
 

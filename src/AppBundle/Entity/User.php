@@ -23,6 +23,12 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @var integer
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $oldId;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=12, nullable=true)
@@ -367,6 +373,24 @@ class User extends BaseUser
     public function setVisibiliteAutre($visibiliteAutre)
     {
         $this->visibiliteAutre = $visibiliteAutre;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOldId()
+    {
+        return $this->oldId;
+    }
+
+    /**
+     * @param mixed $oldId
+     * @return User
+     */
+    public function setOldId($oldId)
+    {
+        $this->oldId = $oldId;
         return $this;
     }
 

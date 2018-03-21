@@ -22,6 +22,9 @@ class TuteurAdmin extends AbstractAdmin
     {
         $formMapper
             ->tab('Général')
+                ->add('user', 'sonata_type_model_list', [
+                    'btn_add' => false
+                ], ['admin_code' => 'admin.user'])
                 ->add('motivations', 'textarea', array('label' => 'Motivations'))
                 ->add('immersion_metier', 'text', array('label' => 'Métier d\'insertion proposé'))
                 ->add('immersion_commentaire','textarea', array('label' => 'Commentaire sur le métier', 'required'=>false))

@@ -120,7 +120,8 @@ class UserAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('id');
+        $listMapper->addIdentifier('id')
+            ->add('oldId', null, ['label'=>'Ancien ID']);
         $listMapper->addIdentifier('firstname');
         $listMapper->addIdentifier('lastname')
             ->add('telephone')

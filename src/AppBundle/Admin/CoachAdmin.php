@@ -21,7 +21,11 @@ class CoachAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('motif', 'choice', array('label' => 'Motif sélectionné', 'choices' => array('Avenir professionnel' => 1, 'Bilan de carrière' => 2, 'Création d\'entreprise' => 3, 'Recerche d\'un nouveau métier' => 4, 'Autres' => 5)))
+        $formMapper
+            ->add('user', 'sonata_type_model_list', [
+                'btn_add' => false
+            ], ['admin_code' => 'admin.user'])
+            ->add('motif', 'choice', array('label' => 'Motif sélectionné', 'choices' => array('Avenir professionnel' => 1, 'Bilan de carrière' => 2, 'Création d\'entreprise' => 3, 'Recerche d\'un nouveau métier' => 4, 'Autres' => 5)))
             ->add('demande','textarea', array('label' => 'Description de la demande'))
             ->add('disponibilites', 'choice', array('label' => 'Disponibilités', 'choices' => array('Immédiate' => 0, 'Sous 1 à 3 mois' => 1, 'Sous 6 à 12 mois' => 3)))
             ->add('situation', 'choice', array('label' => 'Situation actuelle', 'choices' => array('Sans emploi' => 1, 'Étudiant' => 2, 'Employé / Ouvrier' => 3, 'Cadre / Manager' => 4, 'Chef d\'entreprise / Indépendant' => 5, 'Retraité' => 6)))
